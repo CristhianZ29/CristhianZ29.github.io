@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Cristhian Zambrano</title>
+    <title>Cristhian Zambrano | Ingeniería de Sistemas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,21 +10,44 @@
 <nav>
     <div class="logo">CZ</div>
     <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Proyectos</a></li>
-        <li><a href="#">Contacto</a></li>
+        <li><a href="#sobre">Sobre mí</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
     </ul>
 </nav>
 
 <section class="hero">
-    <h1>Diseño. Código. Precisión.</h1>
-    <p>Ingeniero de Sistemas en formación enfocado en desarrollo moderno y soluciones eficientes.</p>
-    <button id="btn">Explorar</button>
+    <h1 class="reveal">Diseño. Código. Precisión.</h1>
+    <p class="reveal">Construyendo mi evolución como Ingeniero de Sistemas.</p>
+    <button id="btn" class="reveal">Explorar</button>
 </section>
 
-<section class="info">
-    <h2>Elegancia en cada línea de código.</h2>
+<section id="sobre" class="section">
+    <h2 class="reveal">Sobre mí</h2>
+    <p class="reveal">Apasionado por el desarrollo de software, arquitectura limpia y soluciones eficientes.</p>
 </section>
+
+<section id="stack" class="section alt">
+    <h2 class="reveal">Stack Tecnológico</h2>
+    <div class="cards">
+        <div class="card reveal">Java</div>
+        <div class="card reveal">Python</div>
+        <div class="card reveal">SQL</div>
+        <div class="card reveal">Git</div>
+    </div>
+</section>
+
+<section id="proyectos" class="section">
+    <h2 class="reveal">Proyectos Destacados</h2>
+    <div class="cards">
+        <div class="card reveal">Calculadora MRU</div>
+        <div class="card reveal">Simulador SO</div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Cristhian Zambrano — Ingeniería de Sistemas
+</footer>
 
 <script src="script.js"></script>
 </body>
