@@ -1,15 +1,22 @@
-window.addEventListener("load", () => {
-    const elements = document.querySelectorAll(".hero h1, .hero p, button");
+// Scroll reveal animation
+function revealOnScroll() {
+    const reveals = document.querySelectorAll(".reveal");
 
-    elements.forEach((el, index) => {
-        setTimeout(() => {
-            el.style.transition = "all 1s ease";
-            el.style.opacity = "1";
-            el.style.transform = "translateY(0)";
-        }, index * 300);
+    reveals.forEach(el => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        const visible = 100;
+
+        if (elementTop < windowHeight - visible) {
+            el.classList.add("active");
+        }
     });
-});
+}
 
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
+
+// Botón scroll suave
 document.getElementById("btn").addEventListener("click", () => {
     window.scrollTo({
         top: window.innerHeight,
