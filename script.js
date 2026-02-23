@@ -1,25 +1,18 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>CZ | Cyberpunk Dev</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+window.addEventListener("load", () => {
+    const elements = document.querySelectorAll(".hero h1, .hero p, button");
 
-<canvas id="particles"></canvas>
+    elements.forEach((el, index) => {
+        setTimeout(() => {
+            el.style.transition = "all 1s ease";
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
+        }, index * 300);
+    });
+});
 
-<div class="container">
-    <h1 class="glitch" data-text="CRISTHIAN ZAMBRANO">
-        CRISTHIAN ZAMBRANO
-    </h1>
-
-    <p class="subtitle">Ingeniero de Sistemas | Cyberpunk Developer</p>
-
-    <button id="btn">Entrar al sistema</button>
-</div>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+document.getElementById("btn").addEventListener("click", () => {
+    window.scrollTo({
+        top: window.innerHeight,
+        behavior: "smooth"
+    });
+});
