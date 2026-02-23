@@ -1,42 +1,25 @@
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>CZ | Cyberpunk Dev</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+<canvas id="particles"></canvas>
 
-let particles = [];
+<div class="container">
+    <h1 class="glitch" data-text="CRISTHIAN ZAMBRANO">
+        CRISTHIAN ZAMBRANO
+    </h1>
 
-for (let i = 0; i < 120; i++) {
-    particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 2,
-        dx: (Math.random() - 0.5) * 1,
-        dy: (Math.random() - 0.5) * 1
-    });
-}
+    <p class="subtitle">Ingeniero de Sistemas | Cyberpunk Developer</p>
 
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    <button id="btn">Entrar al sistema</button>
+</div>
 
-    ctx.fillStyle = "#0ff";
-    particles.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fill();
+<script src="script.js"></script>
 
-        p.x += p.dx;
-        p.y += p.dy;
-
-        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-    });
-
-    requestAnimationFrame(animate);
-}
-
-animate();
-
-document.getElementById("btn").addEventListener("click", () => {
-    alert("Acceso concedido ⚡ Bienvenido al sistema.");
-});
+</body>
+</html>
