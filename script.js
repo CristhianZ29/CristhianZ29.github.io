@@ -1,64 +1,74 @@
-// Scroll reveal
-function revealOnScroll() {
-    const reveals = document.querySelectorAll(".reveal");
+const form = document.getElementById("noteForm");
+const notesContainer = document.getElementById("notesContainer");
 
-    reveals.forEach(el => {
-        const windowHeight = window.innerHeight;
-        const elementTop = el.getBoundingClientRect().top;
-        const visible = 100;
+let notes = JSON.parse(localStorage.getItem("notes")) || [];
 
-        if (elementTop < windowHeight - visible) {
-            el.classList.add("active");
-        }
+function saveNotes() {
+    localStorage.setItem("notes", JSON.stringify(notes));
+}
+
+function renderNotes() {
+    notesContainer.innerHTML = "";
+
+    notes.forEach((note, index) => {
+        const div = document.createElement("div");
+        div.classList.add("note");
+
+        div.innerHTML = `
+            <button class="deleteBtn" onclick="deleteNote(${index})">X</button>
+            <h3>${note.title}</h3>
+            <small>${note.subject}</small>
+            <p>${note.description}</p>
+            ${note.file ? `<a href="${note.file}" download>Descargar archivo</a>` : ""}
+        `;
+
+        notesContainer.appendChild(div);
     });
 }
 
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
-
-// Scroll suave botón
-document.getElementById("btn").addEventListener("click", () => {
-    window.scrollTo({
-        top: window.innerHeight,
-        behavior: "smooth"
-    });
-});
-
-// Animar barras de progreso
-function animateSkills() {
-    const progresses = document.querySelectorAll(".progress");
-
-    progresses.forEach(bar => {
-        const width = bar.getAttribute("data-width");
-        bar.style.width = width;
-    });
+function deleteNote(index) {
+    notes.splice(index, 1);
+    saveNotes();
+    renderNotes();
 }
 
-window.addEventListener("scroll", animateSkills);
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
 
-// Contador animado
-const counter = document.querySelector(".counter");
-let started = false;
+    const title = document.getElementById("title").value;
+    const subject = document.getElementById("subject").value;
+    const description = document.getElementById("description").value;
+    const fileInput = document.getElementById("file");
 
-function animateCounter() {
-    if (started) return;
+    if (fileInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function() {
+            const newNote = {
+                title,
+                subject,
+                description,
+                file: reader.result
+            };
 
-    const rect = counter.getBoundingClientRect();
-    if (rect.top < window.innerHeight) {
-        started = true;
-        const target = +counter.getAttribute("data-target");
-        let count = 0;
-
-        const update = () => {
-            count++;
-            counter.innerText = count;
-            if (count < target) {
-                requestAnimationFrame(update);
-            }
+            notes.push(newNote);
+            saveNotes();
+            renderNotes();
+        };
+        reader.readAsDataURL(fileInput.files[0]);
+    } else {
+        const newNote = {
+            title,
+            subject,
+            description,
+            file: null
         };
 
-        update();
+        notes.push(newNote);
+        saveNotes();
+        renderNotes();
     }
-}
 
-window.addEventListener("scroll", animateCounter);
+    form.reset();
+});
+
+renderNotes();
