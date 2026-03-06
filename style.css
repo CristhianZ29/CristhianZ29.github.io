@@ -174,3 +174,33 @@ footer {
     color: #aaa;
     font-size: 14px;
 }
+.module{
+    padding:80px 10%;
+}
+
+.module h2{
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+.topics{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.topic{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.topic:hover{
+    transform:translateY(-5px);
+}
+
+.topic h3{
+    margin-bottom:10px;
+}
