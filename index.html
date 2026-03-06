@@ -19,25 +19,129 @@
     <p>Organiza y documenta tu aprendizaje universitario.</p>
 </section>
 
+
+<!-- MODULO SISTEMAS OPERATIVOS -->
+<section class="module">
+
+<h2>Sistemas Operativos</h2>
+<p>Apuntes y conceptos fundamentales vistos en la clase.</p>
+
+<div class="topics">
+
+<div class="topic">
+<h3>Historia de los Sistemas Operativos</h3>
+
+<p>
+Los sistemas operativos surgieron como una solución para facilitar la interacción entre el usuario y el hardware del computador. En las primeras generaciones de computadoras los programas se ejecutaban directamente en el hardware, lo que hacía que el proceso fuera complejo y poco eficiente.
+</p>
+
+<p>
+Con el paso del tiempo aparecieron sistemas de procesamiento por lotes que permitían ejecutar varios programas de manera automática. Posteriormente surgieron sistemas multiprogramados que podían mantener varios procesos en memoria al mismo tiempo.
+</p>
+
+<p>
+Actualmente los sistemas operativos gestionan recursos como memoria, CPU, almacenamiento y dispositivos de entrada y salida, permitiendo que múltiples aplicaciones funcionen simultáneamente de forma segura y eficiente.
+</p>
+
+</div>
+
+
+<div class="topic">
+<h3>Algoritmos de Planificación de Procesos</h3>
+
+<p>
+La planificación de procesos es el mecanismo que utiliza el sistema operativo para decidir qué proceso debe ejecutarse en el procesador y durante cuánto tiempo. Esto es fundamental para lograr eficiencia y buen rendimiento del sistema.
+</p>
+
+<ul>
+<li><b>FCFS (First Come First Served):</b> ejecuta procesos en el orden en que llegan.</li>
+<li><b>SJF (Shortest Job First):</b> ejecuta primero los procesos con menor tiempo de ejecución.</li>
+<li><b>Round Robin:</b> asigna un pequeño intervalo de tiempo a cada proceso para evitar monopolizar el CPU.</li>
+<li><b>Prioridad:</b> los procesos con mayor prioridad se ejecutan primero.</li>
+</ul>
+
+<p>
+Cada algoritmo tiene ventajas y desventajas dependiendo del tipo de sistema y del objetivo que se quiera optimizar, como tiempo de respuesta o uso eficiente del procesador.
+</p>
+
+</div>
+
+
+<div class="topic">
+<h3>Instalación básica de Debian Linux</h3>
+
+<p>
+Debian es una distribución de Linux reconocida por su estabilidad y seguridad. Es ampliamente utilizada en servidores y entornos académicos.
+</p>
+
+<p>Pasos básicos de instalación:</p>
+
+<ol>
+<li>Descargar la imagen ISO desde la página oficial.</li>
+<li>Crear un USB booteable.</li>
+<li>Iniciar el computador desde el USB.</li>
+<li>Seleccionar el tipo de instalación.</li>
+<li>Configurar idioma, zona horaria y teclado.</li>
+<li>Crear usuario y contraseña.</li>
+<li>Configurar particiones del disco.</li>
+<li>Instalar el sistema base.</li>
+</ol>
+
+<p>Comandos básicos después de instalar Debian:</p>
+
+<pre>
+sudo apt update
+sudo apt upgrade
+sudo apt install sudo
+</pre>
+
+</div>
+
+
+<div class="topic">
+<h3>Ciclo de vida de los procesos</h3>
+
+<p>
+Un proceso es un programa en ejecución. Durante su funcionamiento pasa por diferentes estados que determinan su relación con el procesador y los recursos del sistema.
+</p>
+
+<ul>
+<li><b>Nuevo:</b> el proceso acaba de crearse.</li>
+<li><b>Listo:</b> está preparado para ejecutarse.</li>
+<li><b>En ejecución:</b> está utilizando el CPU.</li>
+<li><b>En espera:</b> espera algún recurso o evento.</li>
+<li><b>Finalizado:</b> el proceso termina su ejecución.</li>
+</ul>
+
+<p>
+El sistema operativo toma decisiones constantemente para mover procesos entre estos estados, buscando mejorar la eficiencia y mantener el sistema estable.
+</p>
+
+</div>
+
+</div>
+</section>
+
+
 <section id="notas" class="section">
 
-    <h2>Crear nueva nota</h2>
+<h2>Crear nueva nota</h2>
 
-    <form id="noteForm">
-        <input type="text" id="title" placeholder="Título de la nota" required>
-        <input type="text" id="subject" placeholder="Materia" required>
-        <textarea id="description" placeholder="Escribe tu nota aquí..." required></textarea>
-        <input type="file" id="file">
-        <button type="submit">Guardar nota</button>
-    </form>
+<form id="noteForm">
+<input type="text" id="title" placeholder="Título de la nota" required>
+<input type="text" id="subject" placeholder="Materia" required>
+<textarea id="description" placeholder="Escribe tu nota aquí..." required></textarea>
+<input type="file" id="file">
+<button type="submit">Guardar nota</button>
+</form>
 
-    <h2 style="margin-top:60px;">Notas guardadas</h2>
-    <div id="notesContainer"></div>
+<h2 style="margin-top:60px;">Notas guardadas</h2>
+<div id="notesContainer"></div>
 
 </section>
 
 <footer>
-    © 2026 Cristhian Zambrano — Ingeniería de Sistemas
+© 2026 Cristhian Zambrano — Ingeniería de Sistemas
 </footer>
 
 <script src="script.js"></script>
