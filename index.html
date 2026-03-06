@@ -1,125 +1,144 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Cristhian Zambrano | Notas Académicas</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Cristhian Zambrano | Notas Académicas</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <nav>
-    <div class="logo">CZ</div>
-    <ul>
-        <li><a href="#notas">Notas</a></li>
-    </ul>
+<div class="logo">CZ</div>
+<ul>
+<li><a href="#sistemas">Sistemas Operativos</a></li>
+<li><a href="#notas">Notas</a></li>
+</ul>
 </nav>
 
 <section class="hero">
-    <h1>Centro de Apuntes</h1>
-    <p>Organiza y documenta tu aprendizaje universitario.</p>
+<h1>Centro de Apuntes</h1>
+<p>Organiza y documenta tu aprendizaje universitario.</p>
 </section>
 
-
-<!-- MODULO SISTEMAS OPERATIVOS -->
-<section class="module">
+<section id="sistemas" class="module">
 
 <h2>Sistemas Operativos</h2>
-<p>Apuntes y conceptos fundamentales vistos en la clase.</p>
+<p>Apuntes y conceptos fundamentales vistos en clase.</p>
 
 <div class="topics">
 
 <div class="topic">
+
 <h3>Historia de los Sistemas Operativos</h3>
 
 <p>
-Los sistemas operativos surgieron como una solución para facilitar la interacción entre el usuario y el hardware del computador. En las primeras generaciones de computadoras los programas se ejecutaban directamente en el hardware, lo que hacía que el proceso fuera complejo y poco eficiente.
+Los sistemas operativos surgieron para facilitar la interacción entre el usuario y el hardware del computador. Antes de su existencia los programas se ejecutaban directamente en la máquina, lo que hacía el proceso complejo y poco eficiente.
 </p>
 
-<p>
-Con el paso del tiempo aparecieron sistemas de procesamiento por lotes que permitían ejecutar varios programas de manera automática. Posteriormente surgieron sistemas multiprogramados que podían mantener varios procesos en memoria al mismo tiempo.
-</p>
+<ul>
+<li><b>Década de 1940:</b> Los primeros computadores electrónicos no tenían sistemas operativos. Los programas se cargaban manualmente mediante tarjetas perforadas.</li>
 
-<p>
-Actualmente los sistemas operativos gestionan recursos como memoria, CPU, almacenamiento y dispositivos de entrada y salida, permitiendo que múltiples aplicaciones funcionen simultáneamente de forma segura y eficiente.
-</p>
+<li><b>Década de 1950:</b> Aparecen los <b>sistemas Batch</b> que permitían ejecutar trabajos por lotes sin intervención del usuario.</li>
+
+<li><b>1964:</b> IBM desarrolla <b>OS/360</b>, uno de los primeros sistemas operativos capaces de gestionar múltiples tareas.</li>
+
+<li><b>1969:</b> Se desarrolla <b>UNIX</b> en Bell Labs por Ken Thompson y Dennis Ritchie, introduciendo conceptos clave como portabilidad y multitarea.</li>
+
+<li><b>1981:</b> Microsoft lanza <b>MS-DOS</b>, ampliamente usado en computadores personales.</li>
+
+<li><b>1991:</b> <b>Linus Torvalds</b> desarrolla el kernel de <b>Linux</b>, base de muchas distribuciones actuales.</li>
+
+<li><b>Actualidad:</b> Los sistemas operativos modernos gestionan memoria, procesos, almacenamiento, seguridad y permiten ejecutar múltiples aplicaciones simultáneamente.</li>
+</ul>
 
 </div>
 
 
 <div class="topic">
+
 <h3>Algoritmos de Planificación de Procesos</h3>
 
 <p>
-La planificación de procesos es el mecanismo que utiliza el sistema operativo para decidir qué proceso debe ejecutarse en el procesador y durante cuánto tiempo. Esto es fundamental para lograr eficiencia y buen rendimiento del sistema.
+La planificación de procesos es el mecanismo mediante el cual el sistema operativo decide qué proceso utilizará el CPU en cada momento.
 </p>
 
 <ul>
 <li><b>FCFS (First Come First Served):</b> ejecuta procesos en el orden en que llegan.</li>
-<li><b>SJF (Shortest Job First):</b> ejecuta primero los procesos con menor tiempo de ejecución.</li>
-<li><b>Round Robin:</b> asigna un pequeño intervalo de tiempo a cada proceso para evitar monopolizar el CPU.</li>
-<li><b>Prioridad:</b> los procesos con mayor prioridad se ejecutan primero.</li>
+<li><b>SJF (Shortest Job First):</b> prioriza los procesos con menor tiempo de ejecución.</li>
+<li><b>Round Robin:</b> asigna un intervalo de tiempo a cada proceso para evitar monopolizar el CPU.</li>
+<li><b>Prioridad:</b> el sistema ejecuta primero los procesos más importantes.</li>
 </ul>
 
 <p>
-Cada algoritmo tiene ventajas y desventajas dependiendo del tipo de sistema y del objetivo que se quiera optimizar, como tiempo de respuesta o uso eficiente del procesador.
+Estos algoritmos influyen directamente en el rendimiento del sistema, el tiempo de respuesta y la eficiencia en el uso del procesador.
 </p>
 
 </div>
 
 
 <div class="topic">
-<h3>Instalación básica de Debian Linux</h3>
+
+<h3>Configuración básica de Debian desde terminal</h3>
 
 <p>
-Debian es una distribución de Linux reconocida por su estabilidad y seguridad. Es ampliamente utilizada en servidores y entornos académicos.
+Debian es una distribución de Linux conocida por su estabilidad. Después de instalar el sistema base, muchas tareas de administración se realizan mediante la terminal utilizando el gestor de paquetes APT.
 </p>
 
-<p>Pasos básicos de instalación:</p>
-
-<ol>
-<li>Descargar la imagen ISO desde la página oficial.</li>
-<li>Crear un USB booteable.</li>
-<li>Iniciar el computador desde el USB.</li>
-<li>Seleccionar el tipo de instalación.</li>
-<li>Configurar idioma, zona horaria y teclado.</li>
-<li>Crear usuario y contraseña.</li>
-<li>Configurar particiones del disco.</li>
-<li>Instalar el sistema base.</li>
-</ol>
-
-<p>Comandos básicos después de instalar Debian:</p>
+<p>Actualizar el sistema:</p>
 
 <pre>
 sudo apt update
 sudo apt upgrade
-sudo apt install sudo
 </pre>
+
+<p>Instalar paquetes básicos:</p>
+
+<pre>
+sudo apt install sudo
+sudo apt install net-tools
+sudo apt install curl
+</pre>
+
+<p>Comandos básicos de información del sistema:</p>
+
+<pre>
+uname -a
+whoami
+pwd
+</pre>
+
+<p>
+Estos comandos permiten actualizar el sistema, instalar herramientas necesarias y consultar información básica del entorno.
+</p>
 
 </div>
 
 
 <div class="topic">
+
 <h3>Ciclo de vida de los procesos</h3>
 
 <p>
-Un proceso es un programa en ejecución. Durante su funcionamiento pasa por diferentes estados que determinan su relación con el procesador y los recursos del sistema.
+Un proceso es un programa en ejecución. Durante su funcionamiento pasa por distintos estados dentro del sistema operativo.
 </p>
 
 <ul>
 <li><b>Nuevo:</b> el proceso acaba de crearse.</li>
 <li><b>Listo:</b> está preparado para ejecutarse.</li>
-<li><b>En ejecución:</b> está utilizando el CPU.</li>
-<li><b>En espera:</b> espera algún recurso o evento.</li>
+<li><b>En ejecución:</b> está usando el CPU.</li>
+<li><b>En espera:</b> espera recursos o eventos.</li>
 <li><b>Finalizado:</b> el proceso termina su ejecución.</li>
 </ul>
 
 <p>
-El sistema operativo toma decisiones constantemente para mover procesos entre estos estados, buscando mejorar la eficiencia y mantener el sistema estable.
+El sistema operativo toma decisiones constantemente para mover procesos entre estos estados y así mantener el sistema funcionando de forma eficiente.
 </p>
 
 </div>
 
 </div>
+
 </section>
 
 
@@ -145,5 +164,6 @@ El sistema operativo toma decisiones constantemente para mover procesos entre es
 </footer>
 
 <script src="script.js"></script>
+
 </body>
 </html>
