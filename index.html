@@ -12,6 +12,7 @@
 <div class="logo">CZ</div>
 <ul>
 <li><a href="#sistemas">Sistemas Operativos</a></li>
+<li><a href="#memoria">Memoria</a></li>
 <li><a href="#notas">Notas</a></li>
 </ul>
 </nav>
@@ -21,54 +22,46 @@
 <p>Organiza y documenta tu aprendizaje universitario.</p>
 </section>
 
-<!-- MODULO SISTEMAS OPERATIVOS -->
+<!-- SISTEMAS OPERATIVOS -->
 <section id="sistemas" class="module">
 
 <h2>Sistemas Operativos</h2>
-<p>Apuntes y conceptos fundamentales vistos en clase.</p>
 
 <div class="topics">
 
 <div class="topic">
-<h3>Historia de los Sistemas Operativos</h3>
-
+<h3>Historia</h3>
 <ul>
-<li><b>1940:</b> Sin sistemas operativos, uso de tarjetas perforadas.</li>
-<li><b>1950:</b> Sistemas Batch (procesamiento por lotes).</li>
-<li><b>1964:</b> IBM OS/360 introduce multiprogramación.</li>
-<li><b>1969:</b> UNIX (multitarea y portabilidad).</li>
-<li><b>1981:</b> MS-DOS para computadores personales.</li>
-<li><b>1991:</b> Linux (software libre).</li>
-<li><b>Actualidad:</b> sistemas modernos, nube y virtualización.</li>
-</ul>
-
-</div>
-
-<div class="topic">
-<h3>Algoritmos de Planificación</h3>
-<ul>
-<li><b>FCFS:</b> primero en llegar, primero en ejecutarse.</li>
-<li><b>SJF:</b> ejecuta procesos más cortos primero.</li>
-<li><b>Round Robin:</b> reparte tiempo del CPU.</li>
-<li><b>Prioridad:</b> ejecuta procesos importantes primero.</li>
+<li>1940 → Sin SO</li>
+<li>1950 → Batch</li>
+<li>1969 → UNIX</li>
+<li>1981 → MS-DOS</li>
+<li>1991 → Linux</li>
 </ul>
 </div>
 
 <div class="topic">
-<h3>Administración en Debian</h3>
+<h3>Planificación</h3>
+<ul>
+<li>FCFS</li>
+<li>SJF</li>
+<li>Round Robin</li>
+<li>Prioridad</li>
+</ul>
+</div>
 
+<div class="topic">
+<h3>Debian (Comandos)</h3>
 <pre>
 sudo apt update
 sudo apt upgrade
 sudo apt install net-tools
-uname -a
 top
 </pre>
-
 </div>
 
 <div class="topic">
-<h3>Ciclo de Vida de Procesos</h3>
+<h3>Procesos</h3>
 <ul>
 <li>Nuevo</li>
 <li>Listo</li>
@@ -81,41 +74,49 @@ top
 </div>
 </section>
 
-<!-- NUEVO MODULO MEMORIA -->
-<section class="module">
+<!-- MEMORIA (QUIZ) -->
+<section id="memoria" class="module">
 
 <h2>Gestión de Memoria</h2>
+<p>Conceptos clave para evaluaciones.</p>
 
 <div class="topics">
 
+<div class="topic highlight">
+<h3>Memoria Virtual</h3>
+<ul>
+<li>Extiende la RAM usando disco</li>
+<li>Permite multitarea</li>
+<li>Puede causar lentitud (swap)</li>
+<li>Simula más memoria</li>
+</ul>
+</div>
+
+<div class="topic highlight">
+<h3>Paginación</h3>
+<ul>
+<li>Bloques fijos (páginas)</li>
+<li>Evita fragmentación externa</li>
+<li>Page Fault afecta rendimiento</li>
+<li>Uso eficiente de memoria</li>
+</ul>
+</div>
+
+<div class="topic highlight">
+<h3>Segmentación</h3>
+<ul>
+<li>Bloques lógicos</li>
+<li>Tamaño variable</li>
+<li>Mejor organización</li>
+<li>Puede fragmentar memoria</li>
+</ul>
+</div>
+
 <div class="topic">
-
-<h3>Memoria virtual, paginación y segmentación</h3>
-
+<h3>Rendimiento</h3>
 <p>
-El sistema operativo gestiona la memoria para garantizar un uso eficiente de los recursos. Para ello utiliza mecanismos como la memoria virtual, la paginación y la segmentación.
+Estos mecanismos optimizan el uso de memoria y mejoran la ejecución de procesos. Herramientas como RAMMap muestran memoria en uso, espera y libre, evidenciando cómo el sistema mejora el rendimiento.
 </p>
-
-<p>
-La memoria virtual permite extender la memoria RAM utilizando el disco, dando la impresión de tener más memoria disponible. Esto permite ejecutar múltiples programas simultáneamente, aunque puede afectar el rendimiento si se usa en exceso.
-</p>
-
-<p>
-La paginación divide la memoria en bloques fijos llamados páginas. Esto permite cargar solo lo necesario en memoria, optimizando su uso. Sin embargo, los fallos de página pueden disminuir el rendimiento.
-</p>
-
-<p>
-La segmentación organiza la memoria en bloques lógicos (programas, funciones, datos). Mejora la organización pero puede generar fragmentación.
-</p>
-
-<p>
-Estos mecanismos mejoran el rendimiento del sistema, permitiendo ejecutar procesos de forma eficiente y evitando el desperdicio de recursos.
-</p>
-
-<p>
-En la práctica, usando herramientas como RAMMap en Windows, se puede observar cómo la memoria se distribuye en uso, en espera y libre. Se evidencia que el sistema utiliza memoria en espera como caché para mejorar la velocidad de acceso, optimizando el rendimiento general.
-</p>
-
 </div>
 
 </div>
@@ -127,11 +128,11 @@ En la práctica, usando herramientas como RAMMap en Windows, se puede observar c
 <h2>Crear nueva nota</h2>
 
 <form id="noteForm">
-<input type="text" id="title" placeholder="Título de la nota" required>
-<input type="text" id="subject" placeholder="Materia" required>
-<textarea id="description" placeholder="Escribe tu nota aquí..." required></textarea>
-<input type="file" id="file">
-<button type="submit">Guardar nota</button>
+<input type="text" placeholder="Título" required>
+<input type="text" placeholder="Materia" required>
+<textarea placeholder="Escribe tu nota..." required></textarea>
+<input type="file">
+<button>Guardar nota</button>
 </form>
 
 <h2 style="margin-top:60px;">Notas guardadas</h2>
