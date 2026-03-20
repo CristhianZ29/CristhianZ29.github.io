@@ -21,6 +21,7 @@
 <p>Organiza y documenta tu aprendizaje universitario.</p>
 </section>
 
+<!-- MODULO SISTEMAS OPERATIVOS -->
 <section id="sistemas" class="module">
 
 <h2>Sistemas Operativos</h2>
@@ -29,119 +30,98 @@
 <div class="topics">
 
 <div class="topic">
-
 <h3>Historia de los Sistemas Operativos</h3>
 
-<p>
-Los sistemas operativos surgieron para facilitar la interacción entre el usuario y el hardware del computador. Antes de su existencia los programas se ejecutaban directamente en la máquina, lo que hacía el proceso complejo y poco eficiente.
-</p>
-
 <ul>
-<li><b>Década de 1940:</b> Los primeros computadores electrónicos no tenían sistemas operativos. Los programas se cargaban manualmente mediante tarjetas perforadas.</li>
-
-<li><b>Década de 1950:</b> Aparecen los <b>sistemas Batch</b> que permitían ejecutar trabajos por lotes sin intervención del usuario.</li>
-
-<li><b>1964:</b> IBM desarrolla <b>OS/360</b>, uno de los primeros sistemas operativos capaces de gestionar múltiples tareas.</li>
-
-<li><b>1969:</b> Se desarrolla <b>UNIX</b> en Bell Labs por Ken Thompson y Dennis Ritchie, introduciendo conceptos clave como portabilidad y multitarea.</li>
-
-<li><b>1981:</b> Microsoft lanza <b>MS-DOS</b>, ampliamente usado en computadores personales.</li>
-
-<li><b>1991:</b> <b>Linus Torvalds</b> desarrolla el kernel de <b>Linux</b>, base de muchas distribuciones actuales.</li>
-
-<li><b>Actualidad:</b> Los sistemas operativos modernos gestionan memoria, procesos, almacenamiento, seguridad y permiten ejecutar múltiples aplicaciones simultáneamente.</li>
+<li><b>1940:</b> Sin sistemas operativos, uso de tarjetas perforadas.</li>
+<li><b>1950:</b> Sistemas Batch (procesamiento por lotes).</li>
+<li><b>1964:</b> IBM OS/360 introduce multiprogramación.</li>
+<li><b>1969:</b> UNIX (multitarea y portabilidad).</li>
+<li><b>1981:</b> MS-DOS para computadores personales.</li>
+<li><b>1991:</b> Linux (software libre).</li>
+<li><b>Actualidad:</b> sistemas modernos, nube y virtualización.</li>
 </ul>
 
 </div>
 
-
 <div class="topic">
-
-<h3>Algoritmos de Planificación de Procesos</h3>
-
-<p>
-La planificación de procesos es el mecanismo mediante el cual el sistema operativo decide qué proceso utilizará el CPU en cada momento.
-</p>
-
+<h3>Algoritmos de Planificación</h3>
 <ul>
-<li><b>FCFS (First Come First Served):</b> ejecuta procesos en el orden en que llegan.</li>
-<li><b>SJF (Shortest Job First):</b> prioriza los procesos con menor tiempo de ejecución.</li>
-<li><b>Round Robin:</b> asigna un intervalo de tiempo a cada proceso para evitar monopolizar el CPU.</li>
-<li><b>Prioridad:</b> el sistema ejecuta primero los procesos más importantes.</li>
+<li><b>FCFS:</b> primero en llegar, primero en ejecutarse.</li>
+<li><b>SJF:</b> ejecuta procesos más cortos primero.</li>
+<li><b>Round Robin:</b> reparte tiempo del CPU.</li>
+<li><b>Prioridad:</b> ejecuta procesos importantes primero.</li>
 </ul>
-
-<p>
-Estos algoritmos influyen directamente en el rendimiento del sistema, el tiempo de respuesta y la eficiencia en el uso del procesador.
-</p>
-
 </div>
 
-
 <div class="topic">
-
-<h3>Configuración básica de Debian desde terminal</h3>
-
-<p>
-Debian es una distribución de Linux conocida por su estabilidad. Después de instalar el sistema base, muchas tareas de administración se realizan mediante la terminal utilizando el gestor de paquetes APT.
-</p>
-
-<p>Actualizar el sistema:</p>
+<h3>Administración en Debian</h3>
 
 <pre>
 sudo apt update
 sudo apt upgrade
-</pre>
-
-<p>Instalar paquetes básicos:</p>
-
-<pre>
-sudo apt install sudo
 sudo apt install net-tools
-sudo apt install curl
-</pre>
-
-<p>Comandos básicos de información del sistema:</p>
-
-<pre>
 uname -a
-whoami
-pwd
+top
 </pre>
-
-<p>
-Estos comandos permiten actualizar el sistema, instalar herramientas necesarias y consultar información básica del entorno.
-</p>
 
 </div>
 
+<div class="topic">
+<h3>Ciclo de Vida de Procesos</h3>
+<ul>
+<li>Nuevo</li>
+<li>Listo</li>
+<li>Ejecución</li>
+<li>Espera</li>
+<li>Finalizado</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<!-- NUEVO MODULO MEMORIA -->
+<section class="module">
+
+<h2>Gestión de Memoria</h2>
+
+<div class="topics">
 
 <div class="topic">
 
-<h3>Ciclo de vida de los procesos</h3>
+<h3>Memoria virtual, paginación y segmentación</h3>
 
 <p>
-Un proceso es un programa en ejecución. Durante su funcionamiento pasa por distintos estados dentro del sistema operativo.
+El sistema operativo gestiona la memoria para garantizar un uso eficiente de los recursos. Para ello utiliza mecanismos como la memoria virtual, la paginación y la segmentación.
 </p>
 
-<ul>
-<li><b>Nuevo:</b> el proceso acaba de crearse.</li>
-<li><b>Listo:</b> está preparado para ejecutarse.</li>
-<li><b>En ejecución:</b> está usando el CPU.</li>
-<li><b>En espera:</b> espera recursos o eventos.</li>
-<li><b>Finalizado:</b> el proceso termina su ejecución.</li>
-</ul>
+<p>
+La memoria virtual permite extender la memoria RAM utilizando el disco, dando la impresión de tener más memoria disponible. Esto permite ejecutar múltiples programas simultáneamente, aunque puede afectar el rendimiento si se usa en exceso.
+</p>
 
 <p>
-El sistema operativo toma decisiones constantemente para mover procesos entre estos estados y así mantener el sistema funcionando de forma eficiente.
+La paginación divide la memoria en bloques fijos llamados páginas. Esto permite cargar solo lo necesario en memoria, optimizando su uso. Sin embargo, los fallos de página pueden disminuir el rendimiento.
+</p>
+
+<p>
+La segmentación organiza la memoria en bloques lógicos (programas, funciones, datos). Mejora la organización pero puede generar fragmentación.
+</p>
+
+<p>
+Estos mecanismos mejoran el rendimiento del sistema, permitiendo ejecutar procesos de forma eficiente y evitando el desperdicio de recursos.
+</p>
+
+<p>
+En la práctica, usando herramientas como RAMMap en Windows, se puede observar cómo la memoria se distribuye en uso, en espera y libre. Se evidencia que el sistema utiliza memoria en espera como caché para mejorar la velocidad de acceso, optimizando el rendimiento general.
 </p>
 
 </div>
 
 </div>
-
 </section>
 
-
+<!-- NOTAS -->
 <section id="notas" class="section">
 
 <h2>Crear nueva nota</h2>
