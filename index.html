@@ -74,20 +74,21 @@ top
 </div>
 </section>
 
-<!-- MEMORIA (QUIZ) -->
+<!-- MEMORIA -->
 <section id="memoria" class="module">
 
 <h2>Gestión de Memoria</h2>
-<p>Conceptos clave para evaluaciones.</p>
+<p>Conceptos clave y explicación completa.</p>
 
 <div class="topics">
 
+<!-- QUIZ -->
 <div class="topic highlight">
 <h3>Memoria Virtual</h3>
 <ul>
-<li>Extiende la RAM usando disco</li>
+<li>Extiende la RAM con disco</li>
 <li>Permite multitarea</li>
-<li>Puede causar lentitud (swap)</li>
+<li>Puede causar lentitud</li>
 <li>Simula más memoria</li>
 </ul>
 </div>
@@ -98,7 +99,7 @@ top
 <li>Bloques fijos (páginas)</li>
 <li>Evita fragmentación externa</li>
 <li>Page Fault afecta rendimiento</li>
-<li>Uso eficiente de memoria</li>
+<li>Carga solo lo necesario</li>
 </ul>
 </div>
 
@@ -108,15 +109,35 @@ top
 <li>Bloques lógicos</li>
 <li>Tamaño variable</li>
 <li>Mejor organización</li>
-<li>Puede fragmentar memoria</li>
+<li>Fragmentación externa</li>
 </ul>
 </div>
 
-<div class="topic">
-<h3>Rendimiento</h3>
+<!-- TEXTO GRANDE -->
+<div class="topic full">
+
+<h3>Memoria virtual, paginación y segmentación</h3>
+
 <p>
-Estos mecanismos optimizan el uso de memoria y mejoran la ejecución de procesos. Herramientas como RAMMap muestran memoria en uso, espera y libre, evidenciando cómo el sistema mejora el rendimiento.
+El sistema operativo gestiona la memoria con el objetivo de optimizar el uso de los recursos y garantizar el correcto funcionamiento de los procesos. Para ello utiliza mecanismos como la memoria virtual, la paginación y la segmentación.
 </p>
+
+<p>
+La memoria virtual permite extender la memoria RAM utilizando el disco, lo que da la impresión de disponer de mayor capacidad. Esto hace posible ejecutar múltiples programas al mismo tiempo. Sin embargo, cuando el sistema depende demasiado de esta técnica, el rendimiento disminuye debido a la velocidad inferior del disco frente a la memoria RAM.
+</p>
+
+<p>
+La paginación divide la memoria en bloques de tamaño fijo llamados páginas. El sistema operativo carga únicamente las páginas necesarias en memoria, lo que optimiza su uso. No obstante, cuando una página no se encuentra en memoria se produce un fallo de página, lo que puede afectar el rendimiento si ocurre frecuentemente.
+</p>
+
+<p>
+La segmentación, por su parte, divide la memoria en bloques de tamaño variable basados en la estructura lógica del programa. Esto facilita la organización y comprensión del software, aunque puede generar fragmentación externa.
+</p>
+
+<p>
+Estos mecanismos permiten mejorar la eficiencia del sistema, reducir tiempos de respuesta y optimizar el uso de la memoria. En la práctica, herramientas como RAMMap muestran cómo el sistema distribuye la memoria en uso, en espera y libre, evidenciando cómo el sistema operativo utiliza memoria en espera como caché para mejorar el rendimiento.
+</p>
+
 </div>
 
 </div>
@@ -127,7 +148,7 @@ Estos mecanismos optimizan el uso de memoria y mejoran la ejecución de procesos
 
 <h2>Crear nueva nota</h2>
 
-<form id="noteForm">
+<form>
 <input type="text" placeholder="Título" required>
 <input type="text" placeholder="Materia" required>
 <textarea placeholder="Escribe tu nota..." required></textarea>
