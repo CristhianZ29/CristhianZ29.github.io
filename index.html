@@ -13,6 +13,7 @@
 <ul>
 <li><a href="#sistemas">Sistemas Operativos</a></li>
 <li><a href="#memoria">Memoria</a></li>
+<li><a href="#linux">Linux y VMs</a></li>
 <li><a href="#notas">Notas</a></li>
 </ul>
 </nav>
@@ -143,17 +144,74 @@ Estos mecanismos permiten mejorar la eficiencia del sistema, reducir tiempos de 
 </div>
 </section>
 
+<!-- LINUX Y VIRTUALIZACIÓN (NUEVA SECCIÓN) -->
+<section id="linux" class="module">
+
+<h2>Linux y Máquinas Virtuales</h2>
+<p>Prácticas de laboratorio y gestión desde la terminal.</p>
+
+<div class="topics">
+
+<div class="topic full">
+<h3>Instalación de MX Linux en VirtualBox</h3>
+<p>Pasos realizados para montar nuestro entorno de pruebas basado en Debian:</p>
+<ul>
+<li><strong>1. Preparación:</strong> Descargar la ISO oficial de MX Linux y abrir VirtualBox.</li>
+<li><strong>2. Creación de la VM:</strong> Clic en "Nueva". Asignar nombre, tipo "Linux" y versión "Debian (64-bit)".</li>
+<li><strong>3. Recursos:</strong> Asignar al menos 2048 MB de RAM (recomendado 4GB si es posible) y 2 núcleos de CPU.</li>
+<li><strong>4. Disco Virtual:</strong> Crear un disco VDI (VirtualBox Disk Image) reservado dinámicamente con mínimo 20 GB.</li>
+<li><strong>5. Montar ISO:</strong> Ir a Configuración > Almacenamiento > Controlador IDE. Clic en el disco vacío y cargar la ISO de MX Linux.</li>
+<li><strong>6. Instalación:</strong> Iniciar la máquina, arrancar en modo Live y ejecutar el instalador del escritorio para configurar particiones, usuario y GRUB.</li>
+</ul>
+</div>
+
+<div class="topic">
+<h3>10 Comandos Útiles</h3>
+<pre>
+pwd         # Imprime la ruta del directorio actual
+ls -la      # Lista archivos (incluye ocultos y permisos)
+cd /ruta    # Cambia al directorio especificado
+cp -r dir/  # Copia archivos o directorios recursivamente
+mv ar1 ar2  # Mueve o renombra un archivo/directorio
+rm -rf dir/ # Elimina forzosamente un directorio (¡Cuidado!)
+mkdir nomb  # Crea un directorio nuevo
+grep "txt"  # Busca un patrón de texto dentro de archivos
+chmod 755   # Cambia los permisos de un archivo
+tar -czvf   # Comprime archivos en formato .tar.gz
+</pre>
+</div>
+
+<div class="topic highlight">
+<h3>10 Comandos: Solución de Errores</h3>
+<pre>
+top / htop           # Monitorea recursos y procesos en tiempo real
+kill -9 PID          # Fuerza el cierre de un proceso bloqueado
+df -h                # Revisa el espacio disponible en los discos
+free -m              # Muestra el uso de la memoria RAM y Swap
+systemctl status xyz # Verifica el estado de un servicio (ej. apache2)
+journalctl -xe       # Muestra los logs del sistema para buscar errores
+dmesg | tail         # Muestra los últimos mensajes del kernel/hardware
+ping 8.8.8.8         # Verifica la conectividad a internet
+ip a                 # Muestra las interfaces de red y sus IPs
+apt --fix-broken install # Repara dependencias y paquetes rotos
+</pre>
+</div>
+
+</div>
+</section>
+
 <!-- NOTAS -->
 <section id="notas" class="section">
 
 <h2>Crear nueva nota</h2>
 
-<form>
-<input type="text" placeholder="Título" required>
-<input type="text" placeholder="Materia" required>
-<textarea placeholder="Escribe tu nota..." required></textarea>
-<input type="file">
-<button>Guardar nota</button>
+
+<form id="noteForm">
+<input type="text" id="title" placeholder="Título" required>
+<input type="text" id="subject" placeholder="Materia" required>
+<textarea id="description" placeholder="Escribe tu nota..." required></textarea>
+<input type="file" id="file">
+<button type="submit">Guardar nota</button>
 </form>
 
 <h2 style="margin-top:60px;">Notas guardadas</h2>
