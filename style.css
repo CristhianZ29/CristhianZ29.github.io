@@ -1,221 +1,229 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Cristhian Zambrano | Notas Académicas</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
-body{
-font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-background:linear-gradient(135deg,#eef2f7,#f8fbff);
-color:#1d1d1f;
-line-height:1.6;
-}
+<body>
 
-/* NAVBAR */
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 10%;
-background:rgba(255,255,255,0.8);
-backdrop-filter:blur(10px);
-position:sticky;
-top:0;
-z-index:100;
-box-shadow:0 4px 15px rgba(0,0,0,0.05);
-}
+<nav>
+<div class="logo">CZ</div>
+<ul>
+<li><a href="#sistemas">Sistemas Operativos</a></li>
+<li><a href="#memoria">Memoria</a></li>
+<li><a href="#linux">Linux y VMs</a></li>
+<li><a href="#notas">Notas</a></li>
+</ul>
+</nav>
 
-nav ul{
-display:flex;
-gap:25px;
-list-style:none;
-}
+<section class="hero">
+<h1>Centro de Apuntes</h1>
+<p>Organiza y documenta tu aprendizaje universitario.</p>
+</section>
 
-nav a{
-text-decoration:none;
-color:#333;
-font-weight:500;
-transition:0.3s;
-}
+<!-- SISTEMAS OPERATIVOS -->
+<section id="sistemas" class="module">
 
-nav a:hover{
-color:#3b82f6;
-}
+<h2>Sistemas Operativos</h2>
 
-.logo{
-font-weight:bold;
-font-size:22px;
-}
+<div class="topics">
 
-/* HERO */
-.hero{
-text-align:center;
-padding:120px 20px;
-background:linear-gradient(120deg,#0f172a,#1e293b);
-color:white;
-}
+<div class="topic">
+<h3>Historia</h3>
+<ul>
+<li>1940 → Sin SO</li>
+<li>1950 → Batch</li>
+<li>1969 → UNIX</li>
+<li>1981 → MS-DOS</li>
+<li>1991 → Linux</li>
+</ul>
+</div>
 
-.hero h1{
-font-size:3rem;
-margin-bottom:10px;
-}
+<div class="topic">
+<h3>Planificación</h3>
+<ul>
+<li>FCFS</li>
+<li>SJF</li>
+<li>Round Robin</li>
+<li>Prioridad</li>
+</ul>
+</div>
 
-.hero p{
-opacity:0.8;
-}
+<div class="topic">
+<h3>Debian (Comandos)</h3>
+<pre>
+sudo apt update
+sudo apt upgrade
+sudo apt install net-tools
+top
+</pre>
+</div>
 
-/* SECCIONES */
-.module{
-padding:80px 10%;
-}
+<div class="topic">
+<h3>Procesos</h3>
+<ul>
+<li>Nuevo</li>
+<li>Listo</li>
+<li>Ejecución</li>
+<li>Espera</li>
+<li>Finalizado</li>
+</ul>
+</div>
 
-.section{
-padding:80px 10%;
-background:#f8fafc;
-}
+</div>
+</section>
 
-/* GRID */
-.topics{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
-margin-top:30px;
-}
+<!-- MEMORIA -->
+<section id="memoria" class="module">
 
-/* TARJETAS */
-.topic{
-background:white;
-padding:25px;
-border-radius:16px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
-transition:all 0.3s ease;
-max-height:420px;
-overflow:auto;
-position:relative;
-}
+<h2>Gestión de Memoria</h2>
+<p>Conceptos clave y explicación completa.</p>
 
-.topic:hover{
-transform:translateY(-8px) scale(1.01);
-box-shadow:0 20px 40px rgba(0,0,0,0.12);
-}
+<div class="topics">
 
-/* TITULOS */
-.topic h3{
-margin-bottom:10px;
-font-size:1.2rem;
-}
+<!-- QUIZ -->
+<div class="topic highlight">
+<h3>Memoria Virtual</h3>
+<ul>
+<li>Extiende la RAM con disco</li>
+<li>Permite multitarea</li>
+<li>Puede causar lentitud</li>
+<li>Simula más memoria</li>
+</ul>
+</div>
 
-/* LISTAS */
-.topic ul{
-padding-left:20px;
-}
+<div class="topic highlight">
+<h3>Paginación</h3>
+<ul>
+<li>Bloques fijos (páginas)</li>
+<li>Evita fragmentación externa</li>
+<li>Page Fault afecta rendimiento</li>
+<li>Carga solo lo necesario</li>
+</ul>
+</div>
 
-.topic li{
-margin-bottom:6px;
-}
+<div class="topic highlight">
+<h3>Segmentación</h3>
+<ul>
+<li>Bloques lógicos</li>
+<li>Tamaño variable</li>
+<li>Mejor organización</li>
+<li>Fragmentación externa</li>
+</ul>
+</div>
 
-/* TEXTO LARGO */
-.topic p{
-margin-bottom:12px;
-text-align:justify;
-}
+<!-- TEXTO GRANDE -->
+<div class="topic full">
 
-/* BLOQUES DE CODIGO */
-pre{
-background:#0f172a;
-color:#22c55e;
-padding:15px;
-border-radius:10px;
-overflow-x:auto;
-margin-top:10px;
-font-size:0.9rem;
-}
+<h3>Memoria virtual, paginación y segmentación</h3>
 
-/* TARJETAS DESTACADAS (QUIZ) */
-.highlight{
-border-left:6px solid #3b82f6;
-background:linear-gradient(135deg,#f0f7ff,#e0f2fe);
-}
+<p>
+El sistema operativo gestiona la memoria con el objetivo de optimizar el uso de los recursos y garantizar el correcto funcionamiento de los procesos. Para ello utiliza mecanismos como la memoria virtual, la paginación y la segmentación.
+</p>
 
-.highlight h3{
-color:#1d4ed8;
-}
+<p>
+La memoria virtual permite extender la memoria RAM utilizando el disco, lo que da la impresión de disponer de mayor capacidad. Esto hace posible ejecutar múltiples programas al mismo tiempo. Sin embargo, cuando el sistema depende demasiado de esta técnica, el rendimiento disminuye debido a la velocidad inferior del disco frente a la memoria RAM.
+</p>
 
-/* TARJETA GRANDE */
-.full{
-grid-column: span 2;
-max-height:none;
-}
+<p>
+La paginación divide la memoria en bloques de tamaño fijo llamados páginas. El sistema operativo carga únicamente las páginas necesarias en memoria, lo que optimiza su uso. No obstante, cuando una página no se encuentra en memoria se produce un fallo de página, lo que puede afectar el rendimiento si ocurre frecuentemente.
+</p>
 
-@media(max-width:768px){
-.full{
-grid-column: span 1;
-}
-}
+<p>
+La segmentación, por su parte, divide la memoria en bloques de tamaño variable basados en la estructura lógica del programa. Esto facilita la organización y comprensión del software, aunque puede generar fragmentación externa.
+</p>
 
-/* FORMULARIO */
-form{
-display:flex;
-flex-direction:column;
-gap:15px;
-max-width:500px;
-}
+<p>
+Estos mecanismos permiten mejorar la eficiencia del sistema, reducir tiempos de respuesta y optimizar el uso de la memoria. En la práctica, herramientas como RAMMap muestran cómo el sistema distribuye la memoria en uso, en espera y libre, evidenciando cómo el sistema operativo utiliza memoria en espera como caché para mejorar el rendimiento.
+</p>
 
-input, textarea{
-padding:12px;
-border-radius:8px;
-border:1px solid #ccc;
-font-size:14px;
-transition:0.2s;
-}
+</div>
 
-input:focus, textarea:focus{
-outline:none;
-border-color:#3b82f6;
-box-shadow:0 0 0 2px rgba(59,130,246,0.2);
-}
+</div>
+</section>
 
-textarea{
-min-height:120px;
-resize:none;
-}
+<!-- LINUX Y VIRTUALIZACIÓN (NUEVA SECCIÓN) -->
+<section id="linux" class="module">
 
-/* BOTON */
-button{
-padding:12px;
-border:none;
-background:linear-gradient(120deg,#0f172a,#1e293b);
-color:white;
-border-radius:8px;
-cursor:pointer;
-transition:0.3s;
-font-weight:500;
-}
+<h2>Linux y Máquinas Virtuales</h2>
+<p>Prácticas de laboratorio y gestión desde la terminal.</p>
 
-button:hover{
-transform:scale(1.03);
-opacity:0.9;
-}
+<div class="topics">
 
-/* FOOTER */
-footer{
-text-align:center;
-padding:40px;
-background:#0f172a;
-color:white;
-margin-top:60px;
-}
+<div class="topic full">
+<h3>Instalación de MX Linux en VirtualBox</h3>
+<p>Pasos realizados para montar nuestro entorno de pruebas basado en Debian:</p>
+<ul>
+<li><strong>1. Preparación:</strong> Descargar la ISO oficial de MX Linux y abrir VirtualBox.</li>
+<li><strong>2. Creación de la VM:</strong> Clic en "Nueva". Asignar nombre, tipo "Linux" y versión "Debian (64-bit)".</li>
+<li><strong>3. Recursos:</strong> Asignar al menos 2048 MB de RAM (recomendado 4GB si es posible) y 2 núcleos de CPU.</li>
+<li><strong>4. Disco Virtual:</strong> Crear un disco VDI (VirtualBox Disk Image) reservado dinámicamente con mínimo 20 GB.</li>
+<li><strong>5. Montar ISO:</strong> Ir a Configuración > Almacenamiento > Controlador IDE. Clic en el disco vacío y cargar la ISO de MX Linux.</li>
+<li><strong>6. Instalación:</strong> Iniciar la máquina, arrancar en modo Live y ejecutar el instalador del escritorio para configurar particiones, usuario y GRUB.</li>
+</ul>
+</div>
 
-/* SCROLL BONITO */
-::-webkit-scrollbar{
-width:8px;
-}
+<div class="topic">
+<h3>10 Comandos Útiles</h3>
+<pre>
+pwd         # Imprime la ruta del directorio actual
+ls -la      # Lista archivos (incluye ocultos y permisos)
+cd /ruta    # Cambia al directorio especificado
+cp -r dir/  # Copia archivos o directorios recursivamente
+mv ar1 ar2  # Mueve o renombra un archivo/directorio
+rm -rf dir/ # Elimina forzosamente un directorio (¡Cuidado!)
+mkdir nomb  # Crea un directorio nuevo
+grep "txt"  # Busca un patrón de texto dentro de archivos
+chmod 755   # Cambia los permisos de un archivo
+tar -czvf   # Comprime archivos en formato .tar.gz
+</pre>
+</div>
 
-::-webkit-scrollbar-thumb{
-background:#cbd5e1;
-border-radius:10px;
-}
+<div class="topic highlight">
+<h3>10 Comandos: Solución de Errores</h3>
+<pre>
+top / htop           # Monitorea recursos y procesos en tiempo real
+kill -9 PID          # Fuerza el cierre de un proceso bloqueado
+df -h                # Revisa el espacio disponible en los discos
+free -m              # Muestra el uso de la memoria RAM y Swap
+systemctl status xyz # Verifica el estado de un servicio (ej. apache2)
+journalctl -xe       # Muestra los logs del sistema para buscar errores
+dmesg | tail         # Muestra los últimos mensajes del kernel/hardware
+ping 8.8.8.8         # Verifica la conectividad a internet
+ip a                 # Muestra las interfaces de red y sus IPs
+apt --fix-broken install # Repara dependencias y paquetes rotos
+</pre>
+</div>
 
-::-webkit-scrollbar-thumb:hover{
-background:#94a3b8;
-}
+</div>
+</section>
+
+<!-- NOTAS -->
+<section id="notas" class="section">
+
+<h2>Crear nueva nota</h2>
+
+<!-- Agregué los IDs aquí para que tu script.js funcione bro -->
+<form id="noteForm">
+<input type="text" id="title" placeholder="Título" required>
+<input type="text" id="subject" placeholder="Materia" required>
+<textarea id="description" placeholder="Escribe tu nota..." required></textarea>
+<input type="file" id="file">
+<button type="submit">Guardar nota</button>
+</form>
+
+<h2 style="margin-top:60px;">Notas guardadas</h2>
+<div id="notesContainer"></div>
+
+</section>
+
+<footer>
+© 2026 Cristhian Zambrano — Ingeniería de Sistemas
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
